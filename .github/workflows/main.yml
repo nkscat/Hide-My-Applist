@@ -2,7 +2,7 @@ name: Main
 
 on:
   push:
-    branches: [ master ]
+    branches: [ updates  ]
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/issue.yml'
@@ -93,7 +93,7 @@ jobs:
           path: "app/build/outputs/mapping/release"
 
       - name: Post to group
-        if: ${{ github.event_name != 'pull_request' && success() && github.ref == 'refs/heads/master' }}
+        if: ${{ github.event_name != 'pull_request' && success() && github.ref == 'refs/heads/updates' }}
         env:
           CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL }}
           TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC }}
